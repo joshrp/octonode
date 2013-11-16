@@ -14,6 +14,7 @@ Org  = require './org'
 Gist = require './gist'
 Team = require './team'
 Pr   = require './pr'
+Issue= require './issue'
 
 Search = require './search'
 
@@ -53,6 +54,9 @@ class Client
   # Get search instance for client
   search: ->
     new Search @
+
+  issue: (repo, number) ->
+    new Issue repo, number, @
 
   # Github api URL builder
   query: (path = '/', page = null, per_page = null) ->
